@@ -11,7 +11,7 @@ const AllPost: FC<AllPostPropsProps> = (props) => {
 
   return (
     <div className="">
-      <div className="hidden text-2xl mb-2 mt-8 font-semibold lg:block">
+      <div className="hidden text-2xl mb-2  font-semibold lg:block">
         All post
       </div>
       <div className="flex flex-col gap-4 md:grid md:grid-cols-2 lg:grid-cols-4">

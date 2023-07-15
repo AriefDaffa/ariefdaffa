@@ -1,6 +1,13 @@
-import type { FC } from 'react';
+import type { FC, ChangeEvent } from 'react';
 
-const SearchBar: FC = () => {
+interface SearchBarParams {
+  keyword: string;
+  onChange: (e: ChangeEvent<HTMLInputElement>) => void;
+}
+
+const SearchBar: FC<SearchBarParams> = (props) => {
+  const { keyword, onChange } = props;
+
   return (
     <form className="my-2">
       <div className="relative">
@@ -27,6 +34,8 @@ const SearchBar: FC = () => {
           className="block w-full p-4 pl-10 text-sm text-gray-900 border border-gray-dark dark:text-gray-light rounded-lg dark:border-gray-main dark:bg-black-main dark:placeholder-gray-400 dark:text-white outline-none"
           placeholder="Search Posts"
           required
+          value={keyword}
+          onChange={onChange}
         />
       </div>
     </form>

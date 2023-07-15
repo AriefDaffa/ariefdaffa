@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import Link from 'next/link';
 import { Fragment } from 'react';
 import type { FC } from 'react';
 
@@ -21,16 +22,17 @@ const LatestPost: FC<LatestPostProps> = (props) => {
           <BlogCard {...firstPost} />
         </div>
         <div className="lg:grid lg:gap-4">
-          {post?.slice(0, 3)?.map((item, idx) => (
-            <div
+          {post?.slice(1, 4)?.map((item, idx) => (
+            <Link
+              href={`blog/${item.slug}`}
               key={idx}
-              className="border border-gray-main rounded-lg flex flex-row justify-between"
+              className="flex flex-row justify-between"
             >
               <div className="h-full w-40">
                 <Image
                   src={`/asset/image/blog/${item.img}`}
                   alt=""
-                  className="w-full h-full rounded-l-lg object-cover"
+                  className="w-full h-full object-cover"
                   placeholder="blur"
                   width={500}
                   height={500}
@@ -49,7 +51,7 @@ const LatestPost: FC<LatestPostProps> = (props) => {
                 <div className="line-clamp-2">{item.desc}</div>
                 <div className="flex flex-row mt-4 justify-end">Read More</div>
               </div>
-            </div>
+            </Link>
           ))}
         </div>
       </div>
