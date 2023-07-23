@@ -27,16 +27,6 @@ const BlogCard: FC<BlogTypes> = (props) => {
       </div>
       <div className="flex flex-col justify-between pt-3 flex-1">
         <div className="h-full">
-          {/* <div className="flex flex-row gap-1 mb-2 overflow-x-auto">
-            {tags?.map((item, idx) => (
-              <div
-                key={idx}
-                className="border border-black-dark dark:border-gray-light rounded-full px-2 py-1 text-sm "
-              >
-                {item}
-              </div>
-            ))}
-          </div> */}
           <div className="text-xs dark:text-gray-light mb-1">
             Arief Daffa - {publishedAt}
           </div>
