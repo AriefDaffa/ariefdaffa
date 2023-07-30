@@ -1,10 +1,8 @@
 import './globals.css';
-// import { Suspense } from 'react';
 import { Inter } from 'next/font/google';
 
-import Navbar from '@/src/components/molecules/Navbar';
+import Navbar from '@/src/components/UI/Navbar';
 import ThemeProvider from '@/src/utils/ThemeProvider';
-// import { NavigationEvents } from '@/src/utils/NavigationEvents';
 
 const inter = Inter({ subsets: ['latin'] });
 

@@ -1,25 +1,18 @@
-import { Fragment } from 'react';
-
-import SearchBar from '@/src/components/molecules/SearchBar';
-import LatestPost from '@/src/components/organisms/LatestPost';
-import AllPost from '@/src/components/organisms/AllPost';
+import PageTitle from '@/src/components/UI/PageTitle';
+import Blog from '@/src/components/pages/Blog';
 import { getAllBlog } from '@/src/lib/mdx/blog';
-import BlogComponent from '@/src/components/templates/BlogComponent';
 
-const Blog = async () => {
+const BlogPage = async () => {
   const blogs = await getAllBlog();
 
   return (
-    <div className="px-4 my-4">
-      <div className="text-4xl font-bold text-center md:text-left md:text-6xl">
-        Blog
-      </div>
-      <div className="text-center mt-2 md:text-left">
-        See what i&apos;m writing here
-      </div>
-      <BlogComponent blogs={blogs} />
-    </div>
+    <PageTitle
+      title="Blog"
+      subTitle="Journey of Reflection: Unveiling My Personal World"
+    >
+      <Blog blogs={blogs} />
+    </PageTitle>
   );
 };
 
-export default Blog;
+export default BlogPage;

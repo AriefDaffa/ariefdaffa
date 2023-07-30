@@ -4,5 +4,7 @@ export interface ProjectTypes {
   title: string;
   desc: string;
   img: string;
+  site: string;
+  github: string;
   stack: string[];
 }
