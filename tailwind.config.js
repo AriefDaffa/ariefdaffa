@@ -16,6 +16,16 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      // keyframes: {
+      //   floating: {
+      //     '0%': { transform: 'translateY(0px)' },
+      //     '50%': { transform: 'translateY(15px)' },
+      //     '100%': { transform: 'translateY(-0px)' },
+      //   },
+      // },
+      // animation: {
+      //   floating: 'floating 3s ease-in-out infinite',
+      // },
       colors: {
         gray: {
           main: gray.main,
