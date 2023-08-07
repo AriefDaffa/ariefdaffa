@@ -1,6 +1,7 @@
 'use client';
 
 import Link from 'next/link';
+import NProgress from 'nprogress';
 import { Fragment, useState } from 'react';
 import { GiHamburgerMenu } from 'react-icons/gi';
 import { usePathname } from 'next/navigation';
@@ -18,6 +19,10 @@ const Navbar = () => {
   const [openSidebar, setOpenSidebar] = useState(false);
 
   const pathname = usePathname();
+
+  const showLoading = () => {
+    NProgress.start();
+  };
 
   return (
     <Fragment>
@@ -37,6 +42,7 @@ const Navbar = () => {
               <Link
                 key={idx}
                 href={item.url}
+                onClick={showLoading}
                 className={`h-16 w-20 flex ${
                   pathname.includes(item.url) ? 'font-extrabold' : 'font-normal'
                 }`}
