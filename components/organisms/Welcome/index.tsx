@@ -6,13 +6,13 @@ interface WelcomeProps {}
 
 const Welcome: FC<WelcomeProps> = () => {
   return (
-    <div className="flex flex-col gap-4">
+    <div className="flex flex-col gap-4 py-14">
       <div className="flex">
         <div className="w-11/12">
           <Typography type="title">
             A Web Developer who loves to read{' '}
             <span className="text-redPrimary">literature</span>
-            <span className="text-white">(manga)</span>
+            <span className="text-white dark:text-black">(manga)</span>
           </Typography>
         </div>
         <div className="w-1/12">
@@ -27,7 +27,7 @@ const Welcome: FC<WelcomeProps> = () => {
           <Typography type="title-subheader">
             I&apos;m <strong>Arief Daffa</strong>, a software engineer (web) who
             has read too many{' '}
-            <span className="text-redPrimary font-bold">literature</span> that
+            <span className="text-primary font-bold">literature</span> that
             it&apos;s become an obsession—almost to the point of getting sick of
             them! 😂
           </Typography>

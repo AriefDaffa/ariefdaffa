@@ -2,6 +2,8 @@ import type { FC } from 'react';
 
 import Welcome from '@/components/organisms/Welcome';
 import PageLayout from '@/components/organisms/PageLayout';
+import TechStack from '@/components/organisms/TechStack';
+import FeaturedProject from '@/components/organisms/FeaturedProject';
 
 interface HomeProps {}
 
@@ -9,6 +11,8 @@ const Home: FC<HomeProps> = () => {
   return (
     <PageLayout>
       <Welcome />
+      <TechStack />
+      <FeaturedProject />
     </PageLayout>
   );
 };
