@@ -10,14 +10,16 @@ const OrthoCamera = () => {
   const scroll = useScroll();
 
   // Set the starting and ending zoom levels
+  //   const startZoom = 1000; // Initial zoom level
   const startZoom = 1000; // Initial zoom level
   const endZoom = 100; // Zoom level when fully scrolled
 
-  // Set the starting and ending positions for the camera
+  //   const startPosition = new THREE.Vector3(0.1, 10, 0);
   const startPosition = new THREE.Vector3(0.1, 10, 0);
   const endPosition = new THREE.Vector3(10, 20, 20);
 
   // Ensure the camera initially looks at the center of the scene
+  //   const targetPosition = new THREE.Vector3(-2.5, 0, 1.5);
   const targetPosition = new THREE.Vector3(0, 0, 0);
 
   useFrame(() => {

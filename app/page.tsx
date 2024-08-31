@@ -1,11 +1,12 @@
 'use client';
 
-import HomeScene from '@/components/HomeScene';
 import { Suspense } from 'react';
+
+import HomeScene from '@/components/HomeScene';
 
 const App = () => {
   return (
-    <div className="h-screen">
+    <div className="h-screen relative">
       <Suspense fallback={null}>
         <HomeScene />
       </Suspense>

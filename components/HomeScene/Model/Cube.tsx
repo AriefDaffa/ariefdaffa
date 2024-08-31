@@ -11,6 +11,40 @@ const Cube = () => {
   const scroll = useScroll();
 
   useEffect(() => {
+    scene.traverse((node) => {
+      if (node instanceof THREE.Mesh) {
+        // Set the shadow properties on the Mesh
+        node.castShadow = true;
+        node.receiveShadow = true;
+
+        // Handle the case where the material might be an array
+        const materials = Array.isArray(node.material)
+          ? node.material
+          : [node.material];
+
+        materials.forEach((material) => {
+          // Check if the material has a color property and supports shadows
+          if (
+            material instanceof THREE.MeshStandardMaterial ||
+            material instanceof THREE.MeshPhysicalMaterial ||
+            material instanceof THREE.MeshBasicMaterial ||
+            material instanceof THREE.MeshLambertMaterial ||
+            material instanceof THREE.MeshPhongMaterial ||
+            material instanceof THREE.MeshToonMaterial
+          ) {
+            // Material is compatible, so no need to replace
+          } else {
+            // Replace the material with one that supports shadows
+            node.material = new THREE.MeshStandardMaterial({
+              color: new THREE.Color('white'), // Default color or set as needed
+            });
+          }
+        });
+      }
+    });
+  }, [scene]);
+
+  useEffect(() => {
     const action = actions['Chest_0_A|Chest_0_AAction'];
     if (action) {
       action.reset().setLoop(THREE.LoopRepeat, Infinity).play();
@@ -48,7 +82,8 @@ const Cube = () => {
       object={scene}
       castShadow
       receiveShadow
-      position={[0, 0, 0]}
+      position={[0, -0.1, 0]}
+      // position={[1.5, -0.5, 0]}
       scale={[0.01, 0.01, 0.01]}
     />
   );
