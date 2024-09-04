@@ -9,9 +9,12 @@ const { Content } = await entry.render();
 ---
 
 <NavbarLayout title="About me">
-    <div class="w-full flex">
+    <div class="w-full flex pb-20">
         <div class="max-w-screen-md mx-auto space-y-10">
-            
+            <div class="text-center pt-8 text-2xl font-bold">About Me</div>
+            <div class="flex justify-center">
+                <Image src="/images/about/photo.png" alt="" width={300} height={300} class='w-2/3' loading='eager' />
+            </div>
             <main class="prose dark:prose-invert text-justify">
                 <Content />
             </main>
