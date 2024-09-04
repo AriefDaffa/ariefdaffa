@@ -1,8 +1,8 @@
 ---
+import { Image } from 'astro:assets';
 import { getCollection, getEntry } from 'astro:content';
 import NavbarLayout from '@/layouts/NavbarLayout.astro';
-import { Image } from 'astro:assets';
-import TableOfContent from '@/components/TableOfContent.astro';
+import TableOfContent from '@/components/TableOfContent';
 
 export async function getStaticPaths() {
   const entries = await getCollection('blog');
@@ -20,22 +20,22 @@ const { Content, headings } = await entry.render();
 const formattedDate = new Intl.DateTimeFormat('en-US', { dateStyle: 'long' }).format(new Date(entry.data.date));
 ---
 <NavbarLayout title={entry.data.title} >
-    <a href="/blog">
+    <a href="/blog" >
         <div class="text-sm font-semibold">Back</div>
     </a>
     <div class="flex flex-col items-center space-y-10 pt-10">
         <div class="text-center">
             <div class="text-4xl font-bold">{entry.data.title}</div>
-            <div class="text-sm text-gray-text">{formattedDate}</div>
+            <div class="text-sm text-gray-text">{formattedDate} - Arief Daffa</div>
         </div>
         <div class="w-full rounded-md overflow-hidden">
             <Image src={entry.data.image} alt="x" width={300} height={300} class='size-full object-cover' loading='eager' />
         </div>
     </div>
     <div class="w-full py-10 gap-8 relative md:flex ">
-        <div class="w-2/3 prose dark:prose-invert">
+        <main class="prose dark:prose-invert md:w-2/3">
             <Content />
-        </div>
-        <TableOfContent headings={headings} />
+        </main>
+        <TableOfContent client:load headings={headings} />
     </div>
 </NavbarLayout>

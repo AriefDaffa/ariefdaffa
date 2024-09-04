@@ -1,7 +1,24 @@
 ---
 import NavbarLayout from "@/layouts/NavbarLayout.astro";
+import { Image } from "astro:assets";
+import { getEntry } from "astro:content";
+
+const entry = await getEntry('about', 'about-me');
+
+const { Content } = await entry.render();
 ---
 
-<NavbarLayout title="List About">
-    <div>Hello About</div>
+<NavbarLayout title="About me">
+    <div class="w-full flex">
+        <div class="max-w-screen-md mx-auto space-y-10">
+            
+            <main class="prose dark:prose-invert text-justify">
+                <Content />
+            </main>
+            <div class="w-full flex justify-center">
+                <Image src="/images/about/agni-dark.png" alt="" width={300} height={300} class='hidden dark:block' loading='eager' />
+                <Image src="/images/about/agni-light.png" alt="" width={300} height={300} class='dark:hidden' loading='eager' />
+            </div>
+        </div>
+    </div>
 </NavbarLayout>

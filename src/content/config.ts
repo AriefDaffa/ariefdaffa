@@ -10,6 +10,9 @@ const blogsCollection = defineCollection({
   }),
 });
 
+const aboutMeCollection = defineCollection({});
+
 export const collections = {
   blog: blogsCollection,
+  about: aboutMeCollection,
 };

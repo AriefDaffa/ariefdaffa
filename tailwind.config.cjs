@@ -1,8 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  content: [
-    './src/**/*.{astro,html,js,jsx,ts,tsx}', // Specify all relevant file types
-  ],
+  content: ['./src/**/*.{astro,html,js,jsx,ts,tsx}'],
   theme: {
     extend: {
       colors: {
@@ -14,7 +12,7 @@ module.exports = {
       typography: (theme) => ({
         DEFAULT: {
           css: {
-            maxWidth: '100%', // Override default max width
+            maxWidth: '100%',
           },
         },
       }),
