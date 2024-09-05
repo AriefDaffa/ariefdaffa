@@ -2,7 +2,7 @@
 title: 'Is it the end of the world?'
 desc: "Throughout history, humanity has been fascinated and terrified by the idea of the world's end. From ancient prophecies and religious texts to modern science fiction, the concept of an apocalypse — a catastrophic event that brings about the end of civilization — has been a recurring theme. But what does it really mean to talk about the end of the world, and how seriously should we take this idea today?"
 date: 2024-08-07
-image: 'https://images.pexels.com/photos/2401751/pexels-photo-2401751.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1'
+image: '/images/blog/end-of-world/header.jpg'
 ---
 
 _12 August 2024_
