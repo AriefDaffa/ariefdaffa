@@ -1,7 +1,10 @@
 ---
-import NavbarLayout from '@/layouts/NavbarLayout.astro';
+import SceneLayout from '@/layouts/SceneLayout.astro';
+import Scene from '@/components/Scene';
 ---
 
-<NavbarLayout title="Welcome to Astro.">
-	<div class="text-xl">Hello World</div>
-</Layout>
+<SceneLayout title="Welcome to Astro.">
+	<div class="overflow-hidden">
+		<Scene client:load />
+	</div>
+</SceneLayout>

@@ -20,12 +20,8 @@ const { title } = Astro.props;
 		<title>{title}</title>
 	</head>
 	<body class="size-full dark:bg-black dark:text-white overflow-y-scroll">
-        <div class="size-full flex ">
-            <div class="size-full max-w-screen-xl mx-auto px-4 relative">
-                <Navbar />
-		        <slot />
-            </div>
-        </div>   
+        <!-- <Navbar /> -->
+	    <slot />
 	</body>
 </html>
 <style is:global>
