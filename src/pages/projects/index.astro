@@ -15,16 +15,25 @@ const capitalizeFirstWord = (text: string): string => {
 
 <NavbarLayout title="List Projects">
     <div class="text-6xl font-bold py-8">Project</div>
-    <div class="grid  gap-6 pb-10 md:grid-cols-3">
+    <div class="grid gap-8 pb-10 md:grid-cols-2">
         {
-            projects.map((item) => (
-                <div>
-                    <div class="w-full h-52 rounded-md overflow-hidden dark:border-gray-800">
-                        <Image src={item.data.imageSrc} alt="x" width={200} height={200} class='size-full object-cover'/>
+            projects.map((item, idx) => (
+                <div id={`item-${idx}`} class="cursor-pointer">
+                    <div class="w-full h-52 rounded-md overflow-hidden lg:h-80 dark:border-gray-800">
+                        <Image src={item.data.imageSrc} alt="x" width={200} height={200} class='size-full object-contain md:object-cover'/>
                     </div>
-                    <div class="py-2">
-                        <div class="font-semibold">{item.data.title}</div>
-                        <div></div>
+                    <div class="py-2 space-y-2">
+                        <div class="flex gap-2 flex-wrap">
+                            {
+                                item.data.tags.map((el) => (
+                                    <div class="py-1 px-2 rounded-md text-xs border-[1px] shadow-sm dark:border-gray-800 dark:bg-gray-800">{capitalizeFirstWord(el)}</div>
+                                ))
+                            }
+                        </div>
+                        <div class="text-xl font-semibold">{item.data.title}</div>
+                        {/* <div class="text-justify text-gray-text line-clamp-2">
+                            {item.data.desc}
+                        </div> */}
                     </div>
                 </div>
             ))

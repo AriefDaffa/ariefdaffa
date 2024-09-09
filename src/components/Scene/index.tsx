@@ -25,6 +25,13 @@ const Scene: FC<SceneProps> = () => {
     >
       <ambientLight intensity={1} />
       <spotLight castShadow position={[10, 10, 10]} angle={0.15} penumbra={1} />
+      <directionalLight
+        castShadow
+        position={[5, 10, 5]}
+        intensity={0.5}
+        shadow-mapSize-width={1024}
+        shadow-mapSize-height={1024}
+      />
       <group position={[0.25, -8, 0]}>
         <Model />
         {/* <AccumulativeShadows
