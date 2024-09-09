@@ -5,7 +5,7 @@ interface ScreenProps {}
 
 const Screen: FC<ScreenProps> = () => {
   return (
-    <div className="flex">
+    <div className="flex dark:text-black">
       <div className="flex flex-col justify-center h-screen px-8 gap-8 max-w-screen-xl mx-auto">
         <div className="flex">
           <div className="w-[90%]">

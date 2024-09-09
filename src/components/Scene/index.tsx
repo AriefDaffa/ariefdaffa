@@ -1,6 +1,5 @@
 import {
   AccumulativeShadows,
-  Bounds,
   OrbitControls,
   RandomizedLight,
 } from '@react-three/drei';
@@ -16,15 +15,19 @@ const Scene: FC<SceneProps> = () => {
   return (
     <Canvas
       shadows
-      camera={{ position: [-100, -100, 100], fov: 20 }}
+      camera={{
+        position: [-100, 100, 100],
+        fov: 20,
+        zoom: 1.5,
+      }}
       style={{ height: '100vh', zIndex: 10 }}
       className="hidden lg:block"
     >
       <ambientLight intensity={1} />
       <spotLight castShadow position={[10, 10, 10]} angle={0.15} penumbra={1} />
-      <group position={[0.25, -1, 0]}>
+      <group position={[0.25, -8, 0]}>
         <Model />
-        <AccumulativeShadows
+        {/* <AccumulativeShadows
           temporal
           frames={100}
           scale={12}
@@ -38,7 +41,7 @@ const Scene: FC<SceneProps> = () => {
             position={[2.5, 5, -5]}
             bias={0.001}
           />
-        </AccumulativeShadows>
+        </AccumulativeShadows> */}
       </group>
       <OrbitControls
         autoRotateSpeed={-0.1}

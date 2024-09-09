@@ -5,16 +5,9 @@ import * as THREE from 'three';
 
 import Screen from './Screen';
 
-type GLTFResult = any;
-
 export function Model(props: JSX.IntrinsicElements['group']) {
-  const { nodes, materials } = useGLTF(
-    '/model/laptop-transformed.glb'
-  ) as GLTFResult;
+  const { nodes, materials } = useGLTF('/model/laptop-transformed.glb') as any;
   const group = useRef<THREE.Group>(null);
-
-  const { viewport } = useThree();
-  const { width, height } = viewport;
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime();
