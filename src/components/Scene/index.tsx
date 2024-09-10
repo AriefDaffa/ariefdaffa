@@ -1,10 +1,5 @@
-import {
-  AccumulativeShadows,
-  OrbitControls,
-  RandomizedLight,
-} from '@react-three/drei';
-import { Canvas } from '@react-three/fiber';
 import React from 'react';
+import { Canvas } from '@react-three/fiber';
 import type { FC } from 'react';
 
 import { Model } from './Laptop';
@@ -34,23 +29,8 @@ const Scene: FC<SceneProps> = () => {
       />
       <group position={[0.25, -8, 0]}>
         <Model />
-        {/* <AccumulativeShadows
-          temporal
-          frames={100}
-          scale={12}
-          alphaTest={0.85}
-          position={[0, 0.04, 0]}
-        >
-          <RandomizedLight
-            amount={8}
-            radius={10}
-            ambient={0.5}
-            position={[2.5, 5, -5]}
-            bias={0.001}
-          />
-        </AccumulativeShadows> */}
       </group>
-      <OrbitControls
+      {/* <OrbitControls
         autoRotateSpeed={-0.1}
         zoomSpeed={0.25}
         minZoom={40}
@@ -59,7 +39,7 @@ const Scene: FC<SceneProps> = () => {
         dampingFactor={0.05}
         minPolarAngle={Math.PI / 3}
         maxPolarAngle={Math.PI / 3}
-      />
+      /> */}
     </Canvas>
   );
 };
