@@ -1,42 +1,57 @@
 ---
-import { Image } from "astro:assets";
-import { getCollection } from "astro:content";
-import NavbarLayout from "@/layouts/NavbarLayout.astro";
+import { Image } from 'astro:assets'
+import { getCollection } from 'astro:content'
+import NavbarLayout from '@/layouts/NavbarLayout.astro'
 
-const projects = await getCollection('project');
+const projects = await getCollection('project')
 
-const mergedTags = [...new Set(projects.map((item) => item.data.tags).flat())];
+const mergedTags = [...new Set(projects.map((item) => item.data.tags).flat())]
 
 const capitalizeFirstWord = (text: string): string => {
-  return text.replace(/\b\w/g, (char) => char.toUpperCase());
-};
-
+  return text.replace(/\b\w/g, (char) => char.toUpperCase())
+}
 ---
 
 <NavbarLayout title="List Projects">
-    <div class="text-6xl font-bold py-8">Project</div>
-    <div class="grid gap-8 pb-10 md:grid-cols-2">
-        {
-            projects.map((item, idx) => (
-                <div id={`item-${idx}`} class="cursor-pointer">
-                    <div class="w-full h-52 rounded-md overflow-hidden lg:h-80 dark:border-gray-800">
-                        <Image src={item.data.imageSrc} alt="x" width={200} height={200} class='size-full object-contain md:object-cover'/>
-                    </div>
-                    <div class="py-2 space-y-2">
-                        <div class="flex gap-2 flex-wrap">
-                            {
-                                item.data.tags.map((el) => (
-                                    <div class="py-1 px-2 rounded-md text-xs border-[1px] shadow-sm dark:border-gray-800 dark:bg-gray-800">{capitalizeFirstWord(el)}</div>
-                                ))
-                            }
-                        </div>
-                        <div class="text-xl font-semibold">{item.data.title}</div>
-                        {/* <div class="text-justify text-gray-text line-clamp-2">
-                            {item.data.desc}
-                        </div> */}
-                    </div>
+  <div class="text-6xl font-bold py-8">Project</div>
+  <div class="grid gap-8 pb-10 md:grid-cols-2">
+    {
+      projects.map((item, idx) => (
+        <div id={`item-${idx}`} class="">
+          <div class="w-full h-52 rounded-md overflow-hidden cursor-pointer lg:h-80 dark:border-gray-800">
+            <Image
+              src={item.data.imageSrc}
+              alt="x"
+              width={200}
+              height={200}
+              class="size-full object-contain md:object-cover"
+            />
+          </div>
+          <div class="py-2 space-y-2">
+            <div>
+              <div class="flex items-center gap-4">
+                <div class="text-xl font-semibold max-w-[50%] line-clamp-2">
+                  {item.data.title}
                 </div>
-            ))
-        }
-    </div>
+                <div class="flex gap-2 flex-wrap">
+                  {item.data.tags.map((el: string) => (
+                    <div class="py-1 px-2 rounded-md text-xs border-[1px] shadow-sm dark:border-gray-800 dark:bg-gray-800">
+                      {capitalizeFirstWord(el)}
+                    </div>
+                  ))}
+                </div>
+              </div>
+              <a
+                href={item.data.url}
+                target="_blank"
+                class="text-sm text-gray-text hover:underline"
+              >
+                {item.data.url}
+              </a>
+            </div>
+          </div>
+        </div>
+      ))
+    }
+  </div>
 </NavbarLayout>

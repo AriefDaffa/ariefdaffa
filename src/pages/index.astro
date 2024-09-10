@@ -1,48 +1,54 @@
 ---
-import SceneLayout from '@/layouts/SceneLayout.astro';
-import Scene from '@/components/Scene';
+import SceneLayout from '@/layouts/SceneLayout.astro'
+import Scene from '@/components/Scene'
 ---
 
 <SceneLayout title="Welcome to Astro.">
-	<div class="overflow-hidden">
-		<Scene client:load />
-		<div class="flex lg:hidden">
-			<div class="flex flex-col justify-center h-screen px-8 gap-8 max-w-screen-xl mx-auto">
-			  <div class="flex">
-				<div class="w-[85%]">
-				  <div class="text-base">
-					Hello! I'm{' '}
-					<span class="text-primary font-bold">Arief Daffa</span>
-				  </div>
-				  <div class="text-5xl font-semibold md:text-6xl">
-					A Web Developer who loves to{' '}
-					<span class="text-primary">Learn</span>
-				  </div>
-				</div>
-				<div
-				  class="w-[15%] h-full"
-				  style={{
-					backgroundImage: 'url("/images/ornament/ornament-waves.png")',
-				  }}
-				></div>
-			  </div>
-			  <div class="flex gap-8">
-				<div
-				  class="h-full w-[50%] bg-no-repeat bg-cover hidden md:block"
-				  style={{
-					backgroundImage: 'url("/images/ornament/ornament-waves.png")',
-				  }}
-				></div>
-				<div class="w-full text-sm text-justify md:w-[50%]">
-				  I'm Arief Daffa, a software engineer (web) who loves learning new
-				  things that it's become an obsession—almost to the point of getting
-				  sick of them! 😂
-				</div>
-			  </div>
-			  {/* <div class="text-center text-sm text-gray-text">
+  <div class="overflow-hidden">
+    <Scene client:load />
+    <div class="flex lg:hidden">
+      <div
+        class="flex flex-col justify-center h-screen px-8 gap-8 max-w-screen-xl mx-auto"
+      >
+        <div class="flex">
+          <div class="w-[85%]">
+            <div class="text-base">
+              Hello! I'm{' '}
+              <span class="text-primary font-bold">Arief Daffa</span>
+            </div>
+            <div class="text-5xl font-semibold md:text-6xl">
+              A Web Developer who loves to{' '}
+              <span class="text-primary">Learn</span>
+            </div>
+          </div>
+          <div
+            class="w-[15%] h-full"
+            style={{
+              backgroundImage: 'url("/images/ornament/ornament-waves.png")',
+            }}
+          >
+          </div>
+        </div>
+        <div class="flex gap-8">
+          <div
+            class="h-full w-[50%] bg-no-repeat bg-cover hidden md:block"
+            style={{
+              backgroundImage: 'url("/images/ornament/ornament-waves.png")',
+            }}
+          >
+          </div>
+          <div class="w-full text-sm text-justify md:w-[50%]">
+            I'm Arief Daffa, a software engineer (web) who loves learning new
+            things that it's become an obsession—almost to the point of getting
+            sick of them! 😂
+          </div>
+        </div>
+        {
+          /* <div class="text-center text-sm text-gray-text">
 				psst... try scrolling
-			  </div> */}
-			</div>
-		  </div>
-	</div>
+			  </div> */
+        }
+      </div>
+    </div>
+  </div>
 </SceneLayout>

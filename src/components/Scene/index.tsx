@@ -1,17 +1,46 @@
-import React from 'react';
-import { Canvas } from '@react-three/fiber';
-import type { FC } from 'react';
+import React, { useRef } from 'react'
+import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import type { FC } from 'react'
 
-import { Model } from './Laptop';
+import { Model } from './Laptop'
+import { OrbitControls } from '@react-three/drei'
 
 interface SceneProps {}
+
+const CustomOrbit = () => {
+  const controlsRef = useRef<any>(null)
+  const { camera } = useThree()
+
+  // useFrame(() => {
+  // if (controlsRef.current) {
+  //   // Log the current camera position
+  //   console.log('Current Camera Position:', camera.position)
+  // }
+  // })
+
+  return (
+    <OrbitControls
+      ref={controlsRef}
+      autoRotateSpeed={-0.1}
+      zoomSpeed={0.25}
+      minZoom={40}
+      maxZoom={140}
+      enablePan={false}
+      dampingFactor={0.05}
+      minPolarAngle={Math.PI / 2}
+      maxPolarAngle={Math.PI / 2}
+      minAzimuthAngle={-Math.PI / 4} // -22.5 degrees
+      maxAzimuthAngle={Math.PI / 4}
+    />
+  )
+}
 
 const Scene: FC<SceneProps> = () => {
   return (
     <Canvas
       shadows
       camera={{
-        position: [-100, 100, 100],
+        position: [6.7, -0.4, 99],
         fov: 20,
         zoom: 1.5,
       }}
@@ -30,18 +59,9 @@ const Scene: FC<SceneProps> = () => {
       <group position={[0.25, -8, 0]}>
         <Model />
       </group>
-      {/* <OrbitControls
-        autoRotateSpeed={-0.1}
-        zoomSpeed={0.25}
-        minZoom={40}
-        maxZoom={140}
-        enablePan={false}
-        dampingFactor={0.05}
-        minPolarAngle={Math.PI / 3}
-        maxPolarAngle={Math.PI / 3}
-      /> */}
+      <CustomOrbit />
     </Canvas>
-  );
-};
+  )
+}
 
-export default Scene;
+export default Scene
