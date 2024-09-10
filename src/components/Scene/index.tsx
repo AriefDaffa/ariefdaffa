@@ -1,9 +1,9 @@
-import React, { Suspense, useRef } from 'react'
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
 import type { FC } from 'react'
 
 import { Model } from './Laptop'
-import { OrbitControls } from '@react-three/drei'
+import { OrbitControls, Text } from '@react-three/drei'
 
 interface SceneProps {}
 
@@ -21,7 +21,7 @@ const CustomOrbit = () => {
       dampingFactor={0.05}
       minPolarAngle={Math.PI / 2}
       maxPolarAngle={Math.PI / 2}
-      minAzimuthAngle={-Math.PI / 4} // -22.5 degrees
+      minAzimuthAngle={-Math.PI / 4}
       maxAzimuthAngle={Math.PI / 4}
     />
   )
@@ -52,6 +52,16 @@ const Scene: FC<SceneProps> = () => {
         <group position={[0.25, -8, 0]}>
           <Model />
         </group>
+      </Suspense>
+      <Suspense>
+        <Text
+          font="/font/Inter-Bold.woff"
+          scale={[10, 10, 10]}
+          position={[0, 0, -20]}
+          fontWeight={400}
+        >
+          Welcome!
+        </Text>
       </Suspense>
       <CustomOrbit />
     </Canvas>
