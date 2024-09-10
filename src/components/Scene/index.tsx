@@ -1,5 +1,5 @@
-import React, { useRef } from 'react'
-import { Canvas, useFrame, useThree } from '@react-three/fiber'
+import React, { Suspense, useRef } from 'react'
+import { Canvas } from '@react-three/fiber'
 import type { FC } from 'react'
 
 import { Model } from './Laptop'
@@ -9,14 +9,6 @@ interface SceneProps {}
 
 const CustomOrbit = () => {
   const controlsRef = useRef<any>(null)
-  const { camera } = useThree()
-
-  // useFrame(() => {
-  // if (controlsRef.current) {
-  //   // Log the current camera position
-  //   console.log('Current Camera Position:', camera.position)
-  // }
-  // })
 
   return (
     <OrbitControls
@@ -56,9 +48,11 @@ const Scene: FC<SceneProps> = () => {
         shadow-mapSize-width={1024}
         shadow-mapSize-height={1024}
       />
-      <group position={[0.25, -8, 0]}>
-        <Model />
-      </group>
+      <Suspense fallback={null}>
+        <group position={[0.25, -8, 0]}>
+          <Model />
+        </group>
+      </Suspense>
       <CustomOrbit />
     </Canvas>
   )
