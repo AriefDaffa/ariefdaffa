@@ -1,54 +1,68 @@
 ---
-const {isScreenContainer} = Astro.props;
+const { isScreenContainer } = Astro.props
 
-const currentPath = Astro.request.url;
+const currentPath = Astro.request.url
 
 const menuArr = [
-    {path: '/projects', name: "Project"},
-    {path: '/blog', name: "Blog"},
-    {path: '/about', name: "About"},
+  { path: '/projects', name: 'Project' },
+  { path: '/blog', name: 'Blog' },
+  { path: '/about', name: 'About' },
 ]
 ---
 
-<div class={`${isScreenContainer ? "absolute left-0 right-0 mx-auto" : "sticky"} top-4 flex z-10`} style={{zIndex: 100}}>
-    <div class="h-16 w-full max-w-[310px] mx-auto px-6 rounded-full flex flex-col justify-center border-[1px] backdrop-blur-md dark:border-gray-800">
-        <div class="w-full flex justify-between">
-            <div>
-                <a href="/">🏠</a>
-            </div>
-            {
-                menuArr.map((item) => (
-                    <div class="relative">
-                        <a href={item.path} class={`${currentPath.includes(item.path) ? "font-bold text-primary" : ""}`}>{item.name}</a>
-                        {currentPath.includes(item.path) && <div class="absolute -bottom-3 w-full text-center text-4xl text-primary">.</div>}
-                    </div>
-                ))
-            }
-            <button id="theme-toggle">
-                <div class="dark:hidden">🌙</div>
-                <div class="hidden dark:block">☀️</div>
-            </button>
-        </div>
+<div
+  class={`${isScreenContainer ? 'absolute left-0 right-0 mx-auto' : 'sticky'} top-4 flex z-10`}
+  style={{ zIndex: 100 }}
+>
+  <div
+    class="h-16 w-full max-w-[310px] mx-auto px-6 rounded-full flex flex-col justify-center border-[1px] backdrop-blur-md dark:border-gray-800"
+  >
+    <div class="w-full flex justify-between">
+      <div>
+        <a href="/">🏠</a>
+      </div>
+      {
+        menuArr.map((item) => (
+          <div class="relative">
+            <a
+              href={item.path}
+              class={`${currentPath.includes(item.path) ? 'font-bold text-primary' : ''}`}
+            >
+              {item.name}
+            </a>
+            {currentPath.includes(item.path) && (
+              <div class="absolute -bottom-3 w-full text-center text-4xl text-primary">
+                .
+              </div>
+            )}
+          </div>
+        ))
+      }
+      <button id="theme-toggle">
+        <div class="dark:hidden">🌙</div>
+        <div class="hidden dark:block">☀️</div>
+      </button>
     </div>
+  </div>
 </div>
 
 <script>
-    document.addEventListener('DOMContentLoaded', function() {
-      const themeToggleButton = document.getElementById('theme-toggle');
-      const htmlElement = document.documentElement;
-      const currentTheme = localStorage.getItem('theme');
-      
-      if (currentTheme === 'dark') {
-        htmlElement.classList.add('dark');
+  document.addEventListener('DOMContentLoaded', function () {
+    const themeToggleButton = document.getElementById('theme-toggle')
+    const htmlElement = document.documentElement
+    const currentTheme = localStorage.getItem('theme')
+
+    if (currentTheme === 'dark') {
+      htmlElement.classList.add('dark')
+    }
+
+    themeToggleButton?.addEventListener('click', function () {
+      htmlElement.classList.toggle('dark')
+      let theme = 'light'
+      if (htmlElement.classList.contains('dark')) {
+        theme = 'dark'
       }
-  
-      themeToggleButton?.addEventListener('click', function() {
-        htmlElement.classList.toggle('dark');
-        let theme = 'light';
-        if (htmlElement.classList.contains('dark')) {
-          theme = 'dark';
-        }
-        localStorage.setItem('theme', theme);
-      });
-    });
-  </script>
+      localStorage.setItem('theme', theme)
+    })
+  })
+</script>
