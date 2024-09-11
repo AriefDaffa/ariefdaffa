@@ -14,27 +14,27 @@ const capitalizeFirstWord = (text: string): string => {
 
 <NavbarLayout title="List Projects">
   <div class="text-6xl font-bold py-8">Project</div>
-  <div class="grid gap-8 pb-10 md:grid-cols-2">
+  <div class="grid gap-8 pb-10 lg:grid-cols-2">
     {
       projects.map((item, idx) => (
         <div id={`item-${idx}`} class="">
-          <div class="w-full h-52 rounded-md overflow-hidden cursor-pointer lg:h-80 dark:border-gray-800">
+          <div class="w-full h-52 rounded-md overflow-hidden cursor-pointer md:h-80 dark:border-gray-800">
             <Image
               src={item.data.imageSrc}
               alt="x"
               width={200}
               height={200}
               loading="eager"
-              class="size-full object-contain md:object-cover"
+              class="size-full object-contain border-[1px] rounded-md dark:border-gray-800 md:object-cover"
             />
           </div>
           <div class="py-2 space-y-2">
             <div>
-              <div class="flex items-center gap-4">
-                <div class="text-xl font-semibold max-w-[50%] line-clamp-2">
+              <div class="flex items-center justify-between gap-4">
+                <div class="text-xl font-semibold line-clamp-2 lg:max-w-[50%]">
                   {item.data.title}
                 </div>
-                <div class="flex gap-2 flex-wrap">
+                <div class=" gap-2 flex-wrap hidden md:flex">
                   {item.data.tags.map((el: string) => (
                     <div class="py-1 px-2 rounded-md text-xs border-[1px] shadow-sm dark:border-gray-800 dark:bg-gray-800">
                       {capitalizeFirstWord(el)}
@@ -42,6 +42,13 @@ const capitalizeFirstWord = (text: string): string => {
                   ))}
                 </div>
               </div>
+              <div class=" gap-2 flex-wrap flex md:hidden">
+                  {item.data.tags.map((el: string) => (
+                    <div class="py-1 px-2 rounded-md text-xs border-[1px] shadow-sm dark:border-gray-800 dark:bg-gray-800">
+                      {capitalizeFirstWord(el)}
+                    </div>
+                  ))}
+                </div>
               <a
                 href={item.data.url}
                 target="_blank"
