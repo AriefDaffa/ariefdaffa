@@ -1,40 +1,25 @@
 import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react'
 import { Canvas } from '@react-three/fiber'
+import { Bounds, OrbitControls, Text } from '@react-three/drei'
 import type { FC } from 'react'
 
-import { Model } from './Laptop'
-import { OrbitControls, Text } from '@react-three/drei'
+import  Model  from './Laptop'
+import  Orbit  from './helper/Orbit'
 
 interface SceneProps {}
 
-const CustomOrbit = () => {
-  const controlsRef = useRef<any>(null)
-
-  return (
-    <OrbitControls
-      ref={controlsRef}
-      autoRotateSpeed={-0.1}
-      zoomSpeed={0.25}
-      minZoom={40}
-      maxZoom={140}
-      enablePan={false}
-      dampingFactor={0.05}
-      minPolarAngle={Math.PI / 2}
-      maxPolarAngle={Math.PI / 2}
-      minAzimuthAngle={-Math.PI / 4}
-      maxAzimuthAngle={Math.PI / 4}
-    />
-  )
-}
-
 const Scene: FC<SceneProps> = () => {
+  const [isClicked, setIsClicked] = useState(false);
+
+  const handleClick = () => setIsClicked(!isClicked);
+
   return (
     <Canvas
       shadows
       camera={{
-        position: [6.7, -0.4, 99],
+        position: [0, 0, 99],
         fov: 20,
-        zoom: 1.5,
+        zoom: 5,
       }}
       style={{ height: '100vh', zIndex: 10 }}
       className="hidden lg:block"
@@ -50,20 +35,34 @@ const Scene: FC<SceneProps> = () => {
       />
       <Suspense fallback={null}>
         <group position={[0.25, -8, 0]}>
-          <Model />
+          <Model isClicked={isClicked} handleClick={handleClick} />
         </group>
       </Suspense>
-      <Suspense>
-        <Text
-          font="/font/Inter-Bold.woff"
-          scale={[10, 10, 10]}
-          position={[0, 0, -20]}
-          fontWeight={400}
-        >
-          Welcome!
-        </Text>
+      <Suspense fallback={null}>
+        <Bounds fit clip observe>
+          {!isClicked &&
+            <>
+              <Text
+                font="/font/Inter-Bold.woff"
+                scale={[5, 5, 5]}
+                position={[0, 0, -20]}
+                fontWeight={400}
+              >
+                Hi, welcome!
+              </Text>
+              <Text
+                font="/font/Inter-Bold.woff"
+                scale={[0.7, 0.7, 0.7]}
+                position={[0, -3, -20]}
+                fontWeight={400}
+              >
+                (try touching the laptop)
+              </Text>
+            </>
+          }
+        </Bounds>
       </Suspense>
-      <CustomOrbit />
+      <Orbit isClicked={isClicked} />
     </Canvas>
   )
 }

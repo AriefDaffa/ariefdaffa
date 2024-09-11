@@ -1,18 +1,23 @@
-import React, { useRef, useState } from 'react'
+import React, { useEffect, useRef, useState, type FC } from 'react'
 import { Bounds, Html, useGLTF } from '@react-three/drei'
 import { useFrame, useThree } from '@react-three/fiber'
 import * as THREE from 'three'
 
 import Screen from './Screen'
 
-export function Model(props: JSX.IntrinsicElements['group']) {
+interface ModelProps {
+  isClicked: boolean;
+  handleClick: () => void;
+}
+
+ const Model:FC<ModelProps> = ({isClicked, handleClick}) => {
   const { nodes, materials } = useGLTF('/model/laptop-transformed.glb') as any
   const group = useRef<THREE.Group>(null)
   const mesh = useRef<THREE.Mesh>(null)
 
-  const [isClicked, setIsClicked] = useState(false)
+  const [hovered, setHovered] = useState(false)
 
-  const handleClick = () => setIsClicked(!isClicked)
+  useEffect(() => void (document.body.style.cursor = hovered ? 'pointer' : 'auto'), [hovered])
 
   useFrame((state) => {
     const t = state.clock.getElapsedTime()
@@ -52,7 +57,7 @@ export function Model(props: JSX.IntrinsicElements['group']) {
   })
 
   return (
-    <group onClick={handleClick} ref={group} {...props} dispose={null}>
+    <group onClick={handleClick} ref={group} onPointerOver={(e) => (e.stopPropagation(), setHovered(true))} onPointerOut={(e) => setHovered(false)} dispose={null}>
       <mesh
         geometry={nodes.Frame_ComputerFrame_0.geometry}
         material={materials.ComputerFrame}
@@ -83,3 +88,5 @@ export function Model(props: JSX.IntrinsicElements['group']) {
 }
 
 useGLTF.preload('/model/laptop-transformed.glb')
+
+export default Model;
