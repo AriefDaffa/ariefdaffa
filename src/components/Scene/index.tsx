@@ -37,8 +37,6 @@ const Scene: FC<SceneProps> = () => {
         <group position={[0.25, -8, 0]}>
           <Model isClicked={isClicked} handleClick={handleClick} />
         </group>
-      </Suspense>
-      <Suspense fallback={null}>
         <Bounds fit clip observe>
           {!isClicked &&
             <>
@@ -50,14 +48,14 @@ const Scene: FC<SceneProps> = () => {
               >
                 Hi, welcome!
               </Text>
-              <Text
+              {/* <Text
                 font="/font/Inter-Bold.woff"
                 scale={[0.7, 0.7, 0.7]}
                 position={[0, -3, -20]}
                 fontWeight={400}
               >
                 (try touching the laptop)
-              </Text>
+              </Text> */}
             </>
           }
         </Bounds>

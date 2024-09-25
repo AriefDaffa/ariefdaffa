@@ -17,10 +17,10 @@ const Orbit: FC<OrbitProps> = ({isClicked}) => {
       maxZoom={140}
       enablePan={false}
       dampingFactor={0.05}
-      minPolarAngle={Math.PI / 2}
+      minPolarAngle={Math.PI / 3}
       maxPolarAngle={Math.PI / 2}
-      minAzimuthAngle={isClicked ? -Math.PI / 4 : 0}
-      maxAzimuthAngle={isClicked ? Math.PI / 4 : 0}
+      minAzimuthAngle={ -Math.PI / 4}
+      maxAzimuthAngle={ Math.PI / 4}
     />
   )
 };
