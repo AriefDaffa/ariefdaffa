@@ -1,10 +1,18 @@
+'use client';
+
 import { useTheme } from 'next-themes';
-import type { FC } from 'react';
+import { useEffect, useState, type FC } from 'react';
 
 interface DarkModeToggleProps {}
 
 const DarkModeToggle: FC<DarkModeToggleProps> = () => {
   const { setTheme, theme } = useTheme();
+
+  const [mounted, setMounted] = useState(false);
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   const handleThemeChange = () => {
     if (theme === 'dark') {
@@ -21,7 +29,7 @@ const DarkModeToggle: FC<DarkModeToggleProps> = () => {
       onClick={handleThemeChange}
       className="cursor-pointer pr-4 rounded-full"
     >
-      {iconShow}
+      {mounted ? iconShow : '☀️'}
     </div>
   );
 };

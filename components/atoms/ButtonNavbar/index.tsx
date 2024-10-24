@@ -12,6 +12,9 @@ interface ButtonNavbarProps {
 
 const ButtonNavbar: FC<ButtonNavbarProps> = ({ path, text }) => {
   const { theme } = useTheme();
+  // ${
+  //   theme === 'dark' ? 'navbar-item-dark' : 'navbar-item-light'
+  // }
   return (
     <Link
       href={path}

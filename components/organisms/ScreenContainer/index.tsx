@@ -11,7 +11,7 @@ const ScreenContainer: FC<ScreenContainerProps> = ({ children }) => {
     <div className="w-full min-h-screen flex">
       <div className="w-full max-w-screen-xl mx-auto">
         <Navbar />
-        {children}
+        <div className="py-10 px-4">{children}</div>
       </div>
     </div>
   );
