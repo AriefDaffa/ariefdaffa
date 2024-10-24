@@ -1,15 +1,9 @@
-import PageTitle from '@/src/components/UI/PageTitle';
-import Project from '@/src/components/pages/Project';
-import { getAllProject } from '@/src/lib/mdx/project';
+import type { FC } from 'react';
 
-const ProjectPage = async () => {
-  const projects = await getAllProject();
+interface PageProps {}
 
-  return (
-    <PageTitle title="Projects" subTitle="My Personal Project Adventure">
-      <Project projects={projects} />
-    </PageTitle>
-  );
+const Page: FC<PageProps> = () => {
+  return <div>Project</div>;
 };
 
-export default ProjectPage;
+export default Page;

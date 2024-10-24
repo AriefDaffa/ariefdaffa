@@ -1,10 +1,9 @@
-import About from '@/src/components/pages/About';
-import { getAbout } from '@/src/lib/mdx/about';
+import type { FC } from 'react';
 
-const AboutPage = async () => {
-  const { content, meta } = await getAbout();
+interface PageProps {}
 
-  return <About content={content} meta={meta} />;
+const Page: FC<PageProps> = () => {
+  return <div>About</div>;
 };
 
-export default AboutPage;
+export default Page;
