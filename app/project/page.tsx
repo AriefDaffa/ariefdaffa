@@ -1,16 +1,21 @@
-'use client';
-
 import type { FC } from 'react';
 
 import TextTitlePage from '@/components/atoms/TextTitlePage';
+import Flexer from '@/components/atoms/Flexer';
+import ProjectList from '@/components/organisms/ProjectList';
+import { getProjectMarkdownFiles } from '@/lib/project';
 
 interface PageProps {}
 
 const Page: FC<PageProps> = () => {
+  const project = getProjectMarkdownFiles();
+  console.log('rex', project);
+
   return (
-    <div>
+    <Flexer gap={3}>
       <TextTitlePage text="Project" />
-    </div>
+      <ProjectList project={project} />
+    </Flexer>
   );
 };
 

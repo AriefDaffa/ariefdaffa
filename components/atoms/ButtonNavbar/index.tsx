@@ -18,15 +18,15 @@ const ButtonNavbar: FC<ButtonNavbarProps> = ({ path, text }) => {
   return (
     <Link
       href={path}
-      className={path === '/' ? `bg-white p-4 rounded-full` : ''}
+      className={path === '/' ? `bg-white p-3 rounded-full` : ''}
     >
       {text === '' ? (
         <IoHomeSharp className="text-black" size={22} />
       ) : (
         <div
-          className={`navbar-item ${
-            theme === 'dark' ? 'navbar-item-dark' : 'navbar-item-light'
-          }`}
+        // className={`navbar-item ${
+        //   theme === 'dark' ? 'navbar-item-dark' : 'navbar-item-light'
+        // }`}
         >
           {text}
         </div>

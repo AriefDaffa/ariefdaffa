@@ -6,7 +6,7 @@ interface SkeletonProps {
 }
 
 const Skeleton: FC<SkeletonProps> = ({ width, height }) => {
-  return <div style={{ width, height }} />;
+  return <div style={{ width, height }} className="animate-pulse" />;
 };
 
 export default Skeleton;

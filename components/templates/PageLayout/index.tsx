@@ -10,7 +10,7 @@ interface PageLayoutProps {
 const PageLayout: FC<PageLayoutProps> = ({ children }) => {
   return (
     <html lang="en" suppressHydrationWarning>
-      <body className={` antialiased`}>
+      <body className={`antialiased overflow-y-scroll`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"

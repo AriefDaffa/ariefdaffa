@@ -22,7 +22,10 @@ const TextTitlePage: FC<TextTitlePageProps> = ({ text }) => {
   });
 
   return (
-    <animated.div style={animateStyle} className="text-7xl font-semibold">
+    <animated.div
+      style={animateStyle}
+      className="text-7xl font-semibold text-c-headline"
+    >
       {mounted ? text : ''}
     </animated.div>
   );
