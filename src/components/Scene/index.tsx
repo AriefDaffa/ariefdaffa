@@ -1,10 +1,10 @@
-import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react'
-import { Canvas } from '@react-three/fiber'
-import { Bounds, OrbitControls, Text } from '@react-three/drei'
-import type { FC } from 'react'
+import React, { Suspense, useEffect, useMemo, useRef, useState } from 'react';
+import { Canvas } from '@react-three/fiber';
+import { Bounds, OrbitControls, Text } from '@react-three/drei';
+import type { FC } from 'react';
 
-import  Model  from './Laptop'
-import  Orbit  from './helper/Orbit'
+import Model from './Laptop';
+import Orbit from './helper/Orbit';
 
 interface SceneProps {}
 
@@ -21,7 +21,7 @@ const Scene: FC<SceneProps> = () => {
         fov: 20,
         zoom: 5,
       }}
-      style={{ height: '100vh', zIndex: 10 }}
+      style={{ height: '100%', zIndex: 10 }}
       className="hidden lg:block"
     >
       <ambientLight intensity={1} />
@@ -38,7 +38,7 @@ const Scene: FC<SceneProps> = () => {
           <Model isClicked={isClicked} handleClick={handleClick} />
         </group>
         <Bounds fit clip observe>
-          {!isClicked &&
+          {!isClicked && (
             <>
               <Text
                 font="/font/Inter-Bold.woff"
@@ -57,12 +57,12 @@ const Scene: FC<SceneProps> = () => {
                 (try touching the laptop)
               </Text> */}
             </>
-          }
+          )}
         </Bounds>
       </Suspense>
       <Orbit isClicked={isClicked} />
     </Canvas>
-  )
-}
+  );
+};
 
-export default Scene
+export default Scene;
