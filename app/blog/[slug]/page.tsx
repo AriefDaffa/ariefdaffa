@@ -3,7 +3,6 @@ import { Metadata } from 'next';
 import { notFound } from 'next/navigation';
 import type { FC } from 'react';
 
-import PageWrapper from '@/app/_components/PageWrapper';
 import { getAllPosts, getPostBySlug } from '@/app/_lib/blogApi';
 import { renderMd } from '@/app/_lib/renderMd';
 import { formatDate } from '@/app/_utils/formatDate';
@@ -48,33 +47,35 @@ const Page: FC<PageProps> = async ({ params: paramsAsync }) => {
   const content = await renderMd(post.content);
 
   return (
-    <PageWrapper>
-      <div className="flex flex-col items-center space-y-10 pt-10">
-        <div className="text-center">
-          <div className="text-4xl font-bold">{post.title}</div>
-          <div className="text-sm text-gray-text">
-            {formatDate(post.date)} - Arief Daffa
+    <div className="w-full flex">
+      <div className={`w-full max-w-screen-xl mx-auto px-4 `}>
+        <div className="flex flex-col items-center space-y-10 pt-10">
+          <div className="text-center">
+            <div className="text-4xl font-bold">{post.title}</div>
+            <div className="text-sm text-gray-text">
+              {formatDate(post.date)} - Arief Daffa
+            </div>
+          </div>
+          <div className="w-full rounded-md overflow-hidden">
+            <Image
+              src={post.image}
+              alt="x"
+              width={960}
+              height={960}
+              className="size-full object-cover"
+              loading="eager"
+            />
           </div>
         </div>
-        <div className="w-full rounded-md overflow-hidden">
-          <Image
-            src={post.image}
-            alt="x"
-            width={960}
-            height={960}
-            className="size-full object-cover"
-            loading="eager"
+        <div className="w-full py-10 gap-8 relative md:flex">
+          <div
+            className="w-full prose dark:prose-invert"
+            dangerouslySetInnerHTML={{ __html: content.value }}
           />
+          {/* <main className="">{content.value}</main> */}
         </div>
       </div>
-      <div className="w-full py-10 gap-8 relative md:flex">
-        <div
-          className="w-full prose dark:prose-invert"
-          dangerouslySetInnerHTML={{ __html: content.value }}
-        />
-        {/* <main className="">{content.value}</main> */}
-      </div>
-    </PageWrapper>
+    </div>
   );
 };
 

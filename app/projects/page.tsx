@@ -3,7 +3,6 @@ import type { FC } from 'react';
 
 import { getAllProjects } from '@/app/_lib/projectApi';
 import ProjectLists from './_components/ProjectLists';
-import PageWrapper from '../_components/PageWrapper';
 
 export const metadata: Metadata = {
   title: 'Project List | Personal Website',
@@ -14,9 +13,11 @@ const Page: FC = () => {
   const projects = getAllProjects();
 
   return (
-    <PageWrapper>
-      <ProjectLists projects={projects} />
-    </PageWrapper>
+    <div className="w-full flex">
+      <div className={`w-full max-w-screen-xl mx-auto px-4 `}>
+        <ProjectLists projects={projects} />
+      </div>
+    </div>
   );
 };
 

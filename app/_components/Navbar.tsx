@@ -28,7 +28,7 @@ const Navbar: FC = () => {
     <div className="screen-full md:max-h-1/4 border-b-[1px] dark:border-gray-800 flex-col md:flex-row">
       <div className="mx-auto flex flex-col md:flex-row">
         <div className="md:w-2/3 flex justify-end">
-          <div className="flex flex-col justify-between px-8 py-4 w-full max-w-[960px]">
+          <div className="flex flex-col justify-between px-8 py-4 w-full ">
             {pathname === '/' ? (
               <div className="md:w-2/3 text-2xl ">
                 A{' '}
