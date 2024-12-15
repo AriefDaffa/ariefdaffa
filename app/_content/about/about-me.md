@@ -1,0 +1,7 @@
+Hi, I'm Arief Daffa Abdullah, a Web Developer specializing in building captivating and user-friendly web experiences. As a Web Developer, my primary focus is translating design concepts into seamless user interfaces.
+
+Graduated from Brawijaya University with a Bachelor's degree in Informatics (Computer science) and currently living in Bekasi, Jawa Barat. I was previously working as Software Engineer (Web) intern in Tokopedia, and Frontend Engineer in KawanBantu.
+
+During my college years, I actively participated in various communities that played a crucial role in refining my skills. As a proud member of the Basic Computing Community (BCC), affiliated with esteemed organizations like GoTo and Gojek, I had the privilege of expanding my knowledge base. While my passion primarily lies in web Frontend Engineering, I also enjoy delving into other programming realms, including Backend Engineering, Android Engineering, and even dipping my toes into the realm of DevOps. This diverse exploration fuels my continuous growth as a well-rounded developer.
+
+Apart from programming, I have a deep love for reading manga and webtoon! If you share an interest in manga and webtoon, feel free to reach out to me. I can provide you with some of my reviews on comics you've read or recommend new releases. If there's a recently released manga or webtoon that you'd like to read, don't hesitate to contact me, and perhaps we can enjoy it together! 😂

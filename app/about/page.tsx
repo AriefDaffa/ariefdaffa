@@ -1,10 +1,66 @@
-import About from '@/src/components/pages/About';
-import { getAbout } from '@/src/lib/mdx/about';
+import Image from 'next/image';
+import { notFound } from 'next/navigation';
+import { Metadata } from 'next';
+import type { FC } from 'react';
 
-const AboutPage = async () => {
-  const { content, meta } = await getAbout();
+import { getAboutMeBySlug } from '../_lib/aboutApi';
+import { renderMd } from '../_lib/renderMd';
+import PageWrapper from '../_components/PageWrapper';
 
-  return <About content={content} meta={meta} />;
+export const metadata: Metadata = {
+  title: 'About Me | Personal Website',
+  description: 'Created by using Next.js and Tailwindcss',
 };
 
-export default AboutPage;
+const Page: FC = async () => {
+  const data = getAboutMeBySlug('about-me');
+
+  if (!data) {
+    return notFound();
+  }
+
+  const content = await renderMd(data);
+
+  return (
+    <PageWrapper screenSize="md">
+      <div className="w-full flex py-20">
+        <div className="flex flex-col justify-center gap-10">
+          <div className="flex justify-center ">
+            <Image
+              src="/images/about/photo.png"
+              alt=""
+              width={500}
+              height={500}
+              className="w-3/4 object-cover"
+              loading="eager"
+            />
+          </div>
+          <div
+            className="prose dark:prose-invert text-justify"
+            dangerouslySetInnerHTML={{ __html: content.value }}
+          />
+          <div className="w-full flex justify-center">
+            <Image
+              src="/images/about/agni-dark.png"
+              alt=""
+              width={300}
+              height={300}
+              className="hidden dark:block"
+              loading="eager"
+            />
+            <Image
+              src="/images/about/agni-light.png"
+              alt=""
+              width={300}
+              height={300}
+              className="dark:hidden"
+              loading="eager"
+            />
+          </div>
+        </div>
+      </div>
+    </PageWrapper>
+  );
+};
+
+export default Page;
