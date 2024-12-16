@@ -1,9 +1,13 @@
+'use client';
+
 import Scene from './(home)/_components/Scene';
 
-export default function Home() {
+const Page = () => {
   return (
-    <div className="size-full flex items-center justify-center">
+    <div className="h-full flex flex-col items-center justify-center">
       <Scene />
     </div>
   );
-}
+};
+
+export default Page;

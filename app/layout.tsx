@@ -1,5 +1,6 @@
-import type { Metadata } from 'next';
 import { Inter } from 'next/font/google';
+import type { Metadata } from 'next';
+import type { ReactNode } from 'react';
 
 import Navbar from './_components/Navbar';
 import { ThemeProvider } from './_provider/theme-provider';
@@ -12,24 +13,24 @@ export const metadata: Metadata = {
 
 const inter = Inter({ subsets: ['latin'] });
 
-export default function RootLayout({
-  children,
-}: Readonly<{
-  children: React.ReactNode;
-}>) {
+interface RootLayoutProps {
+  children: ReactNode;
+}
+
+export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning>
-      <body className={`${inter.className} antialiased`}>
+    <html lang="en" suppressHydrationWarning className="overflow-y-scroll">
+      <body className={`${inter.className} antialiased h-full `}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <div className="size-full dark:bg-black dark:text-white overflow-y-scroll">
-            <div className="h-screen flex flex-col">
+          <div className="size-full dark:bg-black dark:text-white ">
+            <div className="h-full min-h-screen flex flex-col ">
               <Navbar />
-              <div className="w-full md:h-full">{children}</div>
+              <div className="size-full ">{children}</div>
             </div>
           </div>
         </ThemeProvider>
