@@ -19,8 +19,8 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-y-scroll">
-      <body className={`${inter.className} antialiased h-full `}>
+    <html lang="en" suppressHydrationWarning className="overflow-y-hidden">
+      <body className={`${inter.className} antialiased h-full`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -28,7 +28,7 @@ export default function RootLayout({ children }: RootLayoutProps) {
           disableTransitionOnChange
         >
           <div className="size-full dark:bg-black dark:text-white ">
-            <div className="h-full min-h-screen flex flex-col ">
+            <div className="h-screen flex flex-col overflow-y-scroll">
               <Navbar />
               <div className="size-full ">{children}</div>
             </div>
