@@ -266,6 +266,11 @@
     "@jridgewell/resolve-uri" "^3.1.0"
     "@jridgewell/sourcemap-codec" "^1.4.14"
 
+"@mantine/hooks@^7.15.1":
+  version "7.15.1"
+  resolved "https://registry.yarnpkg.com/@mantine/hooks/-/hooks-7.15.1.tgz#3df618258c4cff6b1adab25eaa1f7a1816ec1395"
+  integrity sha512-jrpjA5JhVSgUi0expfZpvNplMgvwdvrCIcKiDjQ16p/KiWngvTVfmJMtBOVxQ6hWrn500nLmZIDEcTmV9Dvb7g==
+
 "@mediapipe/tasks-vision@0.10.17":
   version "0.10.17"
   resolved "https://registry.yarnpkg.com/@mediapipe/tasks-vision/-/tasks-vision-0.10.17.tgz#2c1c73ed81902b21d37336a587b96183bb6882d5"

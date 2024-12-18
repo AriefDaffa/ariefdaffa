@@ -19,7 +19,7 @@ interface RootLayoutProps {
 
 export default function RootLayout({ children }: RootLayoutProps) {
   return (
-    <html lang="en" suppressHydrationWarning className="overflow-y-hidden">
+    <html lang="en" suppressHydrationWarning>
       <body className={`${inter.className} antialiased h-full`}>
         <ThemeProvider
           attribute="class"
