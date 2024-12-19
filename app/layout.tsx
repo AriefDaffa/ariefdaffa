@@ -5,6 +5,7 @@ import type { ReactNode } from 'react';
 import Navbar from './_components/Navbar';
 import { ThemeProvider } from './_provider/theme-provider';
 import './globals.css';
+import StickyNav from './_components/StickyNav';
 
 export const metadata: Metadata = {
   title: 'Arief Daffa | Personal Website',
@@ -30,7 +31,10 @@ export default function RootLayout({ children }: RootLayoutProps) {
           <div className="size-full dark:bg-black dark:text-white ">
             <div className="h-screen flex flex-col overflow-y-scroll">
               <Navbar />
-              <div className="size-full ">{children}</div>
+              <div className="size-full">
+                <StickyNav />
+                {children}
+              </div>
             </div>
           </div>
         </ThemeProvider>
