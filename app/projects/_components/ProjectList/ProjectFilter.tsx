@@ -3,9 +3,9 @@ import type { Dispatch, FC, SetStateAction } from 'react';
 import { cn } from '@/app/_lib/cn';
 
 interface ProjectFilterProps {
-  selectedTags: string[];
+  selectedTags: string;
   tags: string[];
-  setSelectedTags: Dispatch<SetStateAction<string[]>>;
+  setSelectedTags: Dispatch<SetStateAction<string>>;
   handleSelectTags: (item: string) => void;
 }
 
@@ -22,7 +22,7 @@ const ProjectFilter: FC<ProjectFilterProps> = ({
           'py-1 px-4 rounded-full cursor-pointer hover:bg-primary hover:text-white',
           selectedTags.length === 0 && 'bg-primary text-white'
         )}
-        onClick={() => setSelectedTags([])}
+        onClick={() => setSelectedTags('')}
       >
         All
       </div>

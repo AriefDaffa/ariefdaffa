@@ -2,7 +2,7 @@
 
 import Image from 'next/image';
 import { FaGithub } from 'react-icons/fa';
-import { useMemo, useState, type FC } from 'react';
+import { useState, type FC } from 'react';
 
 import ProjectCard from '@/app/projects/_components/ProjectList/ProjectCard';
 import Modal from '@/app/_components/Modal';
@@ -18,13 +18,8 @@ interface ProjectListProps {
 const ProjectList: FC<ProjectListProps> = ({ projects }) => {
   const [hovered, setHovered] = useState<number | null>(null);
   const [selectedProject, setSelectedProject] = useState<IBlog>();
-  const [selectedTags, setSelectedTags] = useState<string[]>([]);
+  const [selectedTags, setSelectedTags] = useState<string>('');
   const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const tags = useMemo(
-    () => Array.from(new Set(projects.flatMap((project) => project.tags))),
-    [projects]
-  );
 
   const handleOpenModal = (data: IBlog) => {
     setSelectedProject(data);
@@ -34,17 +29,15 @@ const ProjectList: FC<ProjectListProps> = ({ projects }) => {
   const handleCloseModal = () => setIsModalOpen(false);
 
   const handleSelectTags = (tags: string) => {
-    if (selectedTags.indexOf(tags) > -1) {
-      const filteredTags = selectedTags.filter((item) => item !== tags);
-      setSelectedTags(filteredTags);
-    } else {
-      setSelectedTags((oldArr) => [...oldArr, tags]);
+    if (!selectedTags.includes(tags.toLowerCase())) {
+      setSelectedTags(tags);
     }
   };
+
   return (
     <div className="">
       <ProjectFilter
-        tags={tags}
+        tags={['ReactJS', 'NextJS', 'NodeJS', 'Laravel']}
         selectedTags={selectedTags}
         setSelectedTags={setSelectedTags}
         handleSelectTags={handleSelectTags}
@@ -52,9 +45,7 @@ const ProjectList: FC<ProjectListProps> = ({ projects }) => {
       <div className="grid gap-4 py-4 md:grid-cols-2 lg:grid-cols-4">
         {projects
           .filter((item) =>
-            selectedTags.length > 0
-              ? item.tags.some((tag) => selectedTags.includes(tag))
-              : item
+            item.tags.join(', ').includes(selectedTags.toLowerCase())
           )
           .map((item, idx) => (
             <ProjectCard
