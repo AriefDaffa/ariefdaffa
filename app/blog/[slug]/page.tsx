@@ -28,7 +28,7 @@ export const generateMetadata = async (props: PageProps): Promise<Metadata> => {
     return notFound();
   }
 
-  const title = `${post.title} | Personal Website`;
+  const title = `${post.title} | Arief Daffa Personal Website`;
 
   return {
     title,

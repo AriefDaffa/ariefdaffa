@@ -6,7 +6,7 @@ import { getAllPosts } from '../_lib/blogApi';
 import { formatDate } from '../_utils/formatDate';
 
 export const metadata: Metadata = {
-  title: 'Blog Post | Personal Website',
+  title: 'Blog Post | Arief Daffa Personal Website',
   description: 'Created by using Next.js and Tailwindcss',
 };
 

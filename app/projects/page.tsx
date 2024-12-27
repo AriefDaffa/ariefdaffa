@@ -5,7 +5,7 @@ import { getAllProjects } from '@/app/_lib/projectApi';
 import ProjectLists from './_components/ProjectList';
 
 export const metadata: Metadata = {
-  title: 'Project List | Personal Website',
+  title: 'Project List | Arief Daffa Personal Website',
   description: 'Created by using Next.js and Tailwindcss',
 };
 

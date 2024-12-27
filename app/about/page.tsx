@@ -7,7 +7,7 @@ import { getAboutMeBySlug } from '../_lib/aboutApi';
 import { renderMd } from '../_lib/renderMd';
 
 export const metadata: Metadata = {
-  title: 'About Me | Personal Website',
+  title: 'About Me | Arief Daffa Personal Website',
   description: 'Created by using Next.js and Tailwindcss',
 };
 
