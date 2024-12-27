@@ -2,7 +2,7 @@ import { Metadata } from 'next';
 import type { FC } from 'react';
 
 import { getAllProjects } from '@/app/_lib/projectApi';
-import ProjectLists from './_components/ProjectLists';
+import ProjectLists from './_components/ProjectList';
 
 export const metadata: Metadata = {
   title: 'Project List | Personal Website',
