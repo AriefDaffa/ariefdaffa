@@ -13,13 +13,16 @@ interface ProjectModalProps {
 const ProjectModal: FC<ProjectModalProps> = ({ selectedProject }) => {
   return (
     <div className="flex flex-col gap-4">
-      <Image
-        src={selectedProject?.imageSrc || ''}
-        alt=""
-        width={800}
-        height={800}
-        className="w-full rounded-t-md"
-      />
+      <div className="h-[500px] w-full">
+        <Image
+          src={selectedProject?.imageSrc || ''}
+          alt=""
+          width={800}
+          height={500}
+          className="w-full rounded-t-md overflow-hidden"
+        />
+      </div>
+
       <div className="flex flex-col gap-4 px-4">
         <div className="text-4xl font-bold">{selectedProject?.title}</div>
         <div className="text-gray-600 text-sm">
