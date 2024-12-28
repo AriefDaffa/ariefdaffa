@@ -1,6 +1,6 @@
 'use client';
 
-import Stars from './(home)/_components/Stars';
+import Stars from './_components/Stars';
 // import Anime from './(home)/_components/Anime';
 // import Switch from './(home)/_components/Switch';
 
